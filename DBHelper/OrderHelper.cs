@@ -23,9 +23,9 @@ namespace ECommerceAPI.DBHelper
                     orderDetails.Customer.LastName = reader["LastName"].ToString();
                     orderDetails.Order = new Order();
                     orderDetails.Order.OrderId = Convert.ToInt32(reader["OrderId"]);
-                    orderDetails.Order.OrderDate = Convert.ToDateTime(reader["OrderDate"]);
+                    orderDetails.Order.OrderDate = Convert.ToDateTime(reader["OrderDate"]).ToString("dd-MMM-yyyy");
                     orderDetails.Order.DeliveryAddress = reader["DeliveryAddress"].ToString();
-                    orderDetails.Order.DeliveryExpected = Convert.ToDateTime(reader["DeliveryExpected"]);
+                    orderDetails.Order.DeliveryExpected = Convert.ToDateTime(reader["DeliveryExpected"]).ToString("dd-MMM-yyyy");
                 }
                 if(reader.NextResult())
                 {

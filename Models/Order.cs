@@ -9,8 +9,8 @@ namespace ECommerceAPI.Models
 
         [JsonIgnore]
         public int CustomerId { get; set; }
-        public DateTime OrderDate { get; set; }
-        public DateTime DeliveryExpected { get; set; }
+        public string OrderDate { get; set; }
+        public string DeliveryExpected { get; set; }
         public string DeliveryAddress { get; set; }
 
         [JsonIgnore]
