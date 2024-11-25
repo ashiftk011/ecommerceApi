@@ -25,7 +25,7 @@ namespace ECommerceAPI.DBHelper
                     orderDetails.Order.OrderId = Convert.ToInt32(reader["OrderId"]);
                     orderDetails.Order.OrderDate = Convert.ToDateTime(reader["OrderDate"]);
                     orderDetails.Order.DeliveryAddress = reader["DeliveryAddress"].ToString();
-                    orderDetails.Order.ContainsGift = Convert.ToBoolean(reader["ContainsGift"]);
+                    orderDetails.Order.DeliveryExpected = Convert.ToDateTime(reader["DeliveryExpected"]);
                 }
                 if(reader.NextResult())
                 {
@@ -33,10 +33,9 @@ namespace ECommerceAPI.DBHelper
                     while(reader.Read())
                     {
                         OrderItem orderItem = new OrderItem();
-                        orderItem.Product = new Product();
-                        orderItem.Product.ProductName = reader["ProductName"].ToString();
+                        orderItem.Product = reader["ProductName"].ToString();
                         orderItem.Quantity = Convert.ToInt32(reader["Quantity"]);
-                        orderItem.Price = Convert.ToDouble(reader["Price"]);
+                        orderItem.PriceEach = Convert.ToDouble(reader["Price"]);
                         orderDetails.Order.OrderItems.Add(orderItem);
                     }
                 }
